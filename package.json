@@ -14,7 +14,7 @@
     "test": "vitest --config ./scripts/vitest.config.ts",
     "ui": "cd ui; npm run dev",
     "ui-install": "cd ui; pnpm install",
-    "ui:build": "cd ui; tsc",
+    "ui:build": "cd ui; pnpm run build",
     "data:populate": "tsx scripts/data/populate.ts",
     "build": "tsc && pnpm run copy:agents:md; pnpm run ui:build",
     "copy:agents:md": "pnpm run copy:agents:main:instructions:md && pnpm run copy:agents:summary:instructions:md",

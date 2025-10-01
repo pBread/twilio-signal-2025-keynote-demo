@@ -1,4 +1,4 @@
-import { BackendHeader, FrontendHeader } from "@/components/Header";
+import { BackendHeader } from "@/components/Header";
 import { Helmet } from "@/components/Helmet";
 import { ScreenRequestModal } from "@/components/ScreenRequestModal";
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
@@ -66,12 +66,14 @@ function Switch(props: AppProps) {
 
   const path = props.router.asPath;
   const isFrontend = /owl/i.test(path);
+  const isFlex = /flex/i.test(path);
   const router = useRouter();
+
+  if (isFlex) return <BaseComponent {...props} />;
 
   if (isFrontend)
     return (
       <>
-        <FrontendHeader />
         <AnimatePresence mode="wait">
           <motion.div
             key={router.asPath} // ← unique key on each route
@@ -131,4 +133,8 @@ function Backend({ Component, pageProps }: AppProps) {
       </main>
     </>
   );
+}
+
+function BaseComponent({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }

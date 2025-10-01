@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     "../server/common/sync-ids.ts",
     "../server/common/twilio-types.ts",
   ],
+  output: "standalone",
 };
 
 export default nextConfig;

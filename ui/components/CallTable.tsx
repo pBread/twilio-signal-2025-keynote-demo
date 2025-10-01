@@ -101,7 +101,7 @@ function CallRow({
   const session = useAppSelector((state) => selectSessionById(state, callSid));
 
   const [date, time] = new Date(session.dateCreated)
-    .toLocaleString("en-us", { hour12: false })
+    .toLocaleString("en-au", { hour12: false })
     .split(",");
 
   const callStatus = session?.call?.status;
